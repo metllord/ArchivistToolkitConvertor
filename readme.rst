@@ -14,7 +14,9 @@ convert.py in the same directory.
 
 2. Run the command python convert.py. To convert one document, specify that document as the first argument.
 To convert the entire directory, pass '*' as the first arguement.
+
 EX:
+
 .. sourcecode::
     $ python convert.py SourceFile.tab
     $ python convert.py *
