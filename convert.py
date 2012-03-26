@@ -2,6 +2,11 @@ import csv
 from sys import argv
 import os
 
+class TabProcessor:
+    def __init__(self, stream, delimiter='\t', quotes='"', header_row=1):
+        source = open(stream, 'r')
+
+
 def xmloutput(source):
     header = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <accessionRecords xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

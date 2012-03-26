@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<accessionRecords xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <record>
+        <accessionNumber>
+            <part1></part1>
+            <part2></part2>
+            <part3></part3>
+        </accessionNumber>
+        <accessionDate></accessionDate>
+        <acquisitionType></acquisitionType>
+        <userDefinedReal1></userDefinedReal1>
+        <extentNumber></extentNumber>
+        <extentType>Items</extentType>
+        <description></description>
+        <cataloged></cataloged>
+        <nameLink>
+            <nameLinkFunction>Source</nameLinkFunction>
+            <name>
+                <nameType>Corporate Body</nameType>
+                <corporatePrimaryName></corporatePrimaryName>
+                <corporateSubordinate1></corporateSubordinate1>
+                <corporateSubordinate2></corporateSubordinate2>
+            </name>
+        </nameLink>
+        <nameLink>
+            <nameLinkFunction>Source</nameLinkFunction>
+            <name>
+                <nameType>Person</nameType>
+                <personalPrimaryName></personalPrimaryName>
+                <personalRestOfName></personalRestOfName>
+                <personalPrefix></personalPrefix>
+                <personalSuffix></personalSuffix>
+            </name>
+        </nameLink>
+    </record>
+</accessionRecords>
