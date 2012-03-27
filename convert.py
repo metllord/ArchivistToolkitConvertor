@@ -1,7 +1,9 @@
 import csv
 from sys import argv
 import os
-"""
+
+def dataprep(row):
+    """
 == basicData ==
  0 -> part1
  1 -> part2
@@ -14,7 +16,7 @@ import os
  8 -> description
  9 -> cataloged
 10 -> nameLinkFunction
-== corportateName1 ==
+== corporateName1 ==
 11 -> nameType
 12 -> corporatePrimaryName
 13 -> corporateSubordinate1
@@ -35,20 +37,19 @@ import os
 25 -> personalPrefix
 26 -> personalSuffix
 """
-
-def dataprep(row):
     header = ('part1', 'part2', 'part3', 'accessionDate', 'acquisitionType', 'userDefinedReal1',
-        'extentNumber', 'extentType', 'description', 'cataloged', 'nameLinkFunction', 'nameType',
+        'extentNumber', 'extentType', 'title', 'description', 'cataloged', 'nameLinkFunction', 'nameType',
         'corporatePrimaryName', 'corporateSubordinate1', 'corporateSubordinate2', 'nameType', 'corporatePrimaryName',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix')
-    basicData = dict(zip(header[0:11], row[0:11]))
+
+    basicData = dict(zip(header[0:12], row[0:12]))
     if "$" in basicData['userDefinedReal1']: basicData['userDefinedReal1'] = basicData['userDefinedReal1'].replace('$', '')
     basicData['cataloged'] = basicData['cataloged'].lower()
-    corportateName1 = dict(zip(header[11:15], row[11:15]))
-    corportateName2 = dict(zip(header[15:17], row[15:17]))
-    personName1 = dict(zip(header[17:22], row[17:22]))
-    personName2 = dict(zip(header[22:], row[22:]))
+    corportateName1 = dict(zip(header[12:16], row[12:16]))
+    corportateName2 = dict(zip(header[16:18], row[16:18]))
+    personName1 = dict(zip(header[18:23], row[18:23]))
+    personName2 = dict(zip(header[23:], row[23:]))
     data = {'basicData':basicData, 'corportateName1':corportateName1, 'corportateName2':corportateName2,
             'personName1':personName1, 'personName2':personName2}
     return data
@@ -66,6 +67,7 @@ def xmloutput(source):
 <part3>%(part3)s</part3>
 </accessionNumber>
 <accessionDate>%(accessionDate)s</accessionDate>
+<title>%(title)s</title>
 <acquisitionType>%(acquisitionType)s</acquisitionType>
 <userDefinedReal1>%(userDefinedReal1)s</userDefinedReal1>
 <extentNumber>%(extentNumber)s</extentNumber>
@@ -133,7 +135,7 @@ def xmloutput(source):
 if argv[1] == '*':
     try:
         os.mkdir('completed')
-    except WindowsError:
+    except OSError:
         pass
     filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
     for tabfile in filelist:
@@ -142,7 +144,7 @@ if argv[1] == '*':
 else:
     try:
         os.mkdir('completed')
-    except WindowsError:
+    except OSError:
         pass
     for tabfile in argv[1:]:
         xmloutput(tabfile)
