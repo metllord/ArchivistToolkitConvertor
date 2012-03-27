@@ -16,12 +16,11 @@ convert.py in the same directory.
 To convert the entire directory, pass '*' as the first arguement.
 
 EX:
-
-.. sourcecode::
+::
     $ python convert.py SourceFile.tab OtherSource.tab (converts these two files)
     $ python convert.py * (Converts all files in working directory)
 
-3. The program will move the source files for the completed conversions to the Finished folder. The
+3. The program will move the source files for the completed conversions to the 'completed' folder. The
 XML files will be placed in the working directory. If there are errors, they will be listed in errors.txt
 and the tab files will be kept in the working directory.
 
@@ -35,4 +34,17 @@ File List
 ---------
 
 * convert.py
-* template.xml
+
+Notes
+-----
+
+This can be improved greatly. Right now, it will break if the tab file is in a different order. Also, the
+XML is not ever validated
+
+To Do
+~~~~~
+
+1. Generalize the input so it works with tab documents in different orders
+2. Validate the XML once generated
+3. Maybe skip the XML and write directly to the MySQL database
+4. Create a names import feature.
