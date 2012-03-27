@@ -42,7 +42,7 @@ def dataprep(row):
         'corporatePrimaryName', 'corporateSubordinate1', 'corporateSubordinate2', 'nameType', 'corporatePrimaryName',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix')
-    basicData = dict(zip(header[0:11], row[0:11])).
+    basicData = dict(zip(header[0:11], row[0:11]))
     if "$" in basicData['userDefinedReal1']: basicData['userDefinedReal1'] = basicData['userDefinedReal1'].replace('$', '')
     basicData['cataloged'] = basicData['cataloged'].lower()
     corportateName1 = dict(zip(header[11:15], row[11:15]))
