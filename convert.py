@@ -42,7 +42,9 @@ def dataprep(row):
         'corporatePrimaryName', 'corporateSubordinate1', 'corporateSubordinate2', 'nameType', 'corporatePrimaryName',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix',
         'nameType', 'personalPrimaryName', 'personalRestOfName', 'personalPrefix', 'personalSuffix')
-    basicData = dict(zip(header[0:11], row[0:11]))
+    basicData = dict(zip(header[0:11], row[0:11])).
+    if "$" in basicData['userDefinedReal1']: basicData['userDefinedReal1'] = basicData['userDefinedReal1'].replace('$', '')
+    basicData['cataloged'] = basicData['cataloged'].lower()
     corportateName1 = dict(zip(header[11:15], row[11:15]))
     corportateName2 = dict(zip(header[15:17], row[15:17]))
     personName1 = dict(zip(header[17:22], row[17:22]))
@@ -113,11 +115,11 @@ def xmloutput(source):
         stream += basicdata % data['basicData']
         if data['corportateName1']['nameType']:
             stream += corportateName1 % data['corportateName1']
-        elif data['corportateName2']['nameType']:
+        if data['corportateName2']['nameType']:
             stream += corportateName2 % data['corportateName2']
-        elif data['personName1']['nameType']:
+        if data['personName1']['nameType']:
             stream += personName % data['personName1']
-        elif data['personName2']['nameType']:
+        if data['personName2']['nameType']:
             stream += personName % data['personName2']
         stream += '</record>\n'
     stream += footer
