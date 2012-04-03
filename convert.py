@@ -13,29 +13,30 @@ def dataprep(row):
  5 -> userDefinedReal1
  6 -> extentNumber
  7 -> extentType
- 8 -> description
- 9 -> cataloged
-10 -> nameLinkFunction
+ 8 -> title
+ 9 -> description
+10 -> cataloged
+11 -> nameLinkFunction
 == corporateName1 ==
-11 -> nameType
-12 -> corporatePrimaryName
-13 -> corporateSubordinate1
-14 -> corporateSubordinate2
+12 -> nameType
+13 -> corporatePrimaryName
+14 -> corporateSubordinate1
+15 -> corporateSubordinate2
 == corporateName2 ==
-15 -> nameType
-16 -> corporatePrimaryName
+16 -> nameType
+17 -> corporatePrimaryName
 == personName1 ==
-17 -> nameType
-18 -> personalPrimaryName
-19 -> personalRestOfName
-20 -> personalPrefix
-21 -> personalSuffix
+18 -> nameType
+19 -> personalPrimaryName
+20 -> personalRestOfName
+21 -> personalPrefix
+22 -> personalSuffix
 == personName2 ==
-22 -> nameType
-23 -> personalPrimaryName
-24 -> personalRestOfName
-25 -> personalPrefix
-26 -> personalSuffix
+23 -> nameType
+24 -> personalPrimaryName
+25 -> personalRestOfName
+26 -> personalPrefix
+27 -> personalSuffix
 """
     header = ('part1', 'part2', 'part3', 'accessionDate', 'acquisitionType', 'userDefinedReal1',
         'extentNumber', 'extentType', 'title', 'description', 'cataloged', 'nameLinkFunction', 'nameType',
