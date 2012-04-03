@@ -139,7 +139,7 @@ if __name__ == "__main__":
                 os.mkdir('completed')
             except OSError:
                 pass
-            filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
+            filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] in ['.txt', '.tab']]
             for tabfile in filelist:
                 xmloutput(tabfile)
                 os.rename(tabfile, 'completed/'+tabfile)
@@ -156,7 +156,7 @@ if __name__ == "__main__":
             os.mkdir('completed')
         except OSError:
             pass
-        filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
+        filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1]  in ['.txt', '.tab']]
         for tabfile in filelist:
             xmloutput(tabfile)
             os.rename(tabfile, 'completed/'+tabfile)
