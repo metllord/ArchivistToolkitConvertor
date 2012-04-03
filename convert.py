@@ -131,22 +131,32 @@ def xmloutput(source):
 
 
 
-
-
-if argv[1] == '*':
+if __name__ == "__main__":
     try:
-        os.mkdir('completed')
-    except OSError:
-        pass
-    filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
-    for tabfile in filelist:
-        xmloutput(tabfile)
-        os.rename(tabfile, 'completed/'+tabfile)
-else:
-    try:
-        os.mkdir('completed')
-    except OSError:
-        pass
-    for tabfile in argv[1:]:
-        xmloutput(tabfile)
-        os.rename(tabfile, 'completed/'+tabfile)
+        arguments = argv[1:]
+        if argv[1] == '*':
+            try:
+                os.mkdir('completed')
+            except OSError:
+                pass
+            filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
+            for tabfile in filelist:
+                xmloutput(tabfile)
+                os.rename(tabfile, 'completed/'+tabfile)
+        else:
+            try:
+                os.mkdir('completed')
+            except OSError:
+                pass
+            for tabfile in argv[1:]:
+                xmloutput(tabfile)
+                os.rename(tabfile, 'completed/'+tabfile)
+    except IndexError:
+        try:
+            os.mkdir('completed')
+        except OSError:
+            pass
+        filelist = [x for x in os.listdir('.') if os.path.splitext(x)[1] == '.tab']
+        for tabfile in filelist:
+            xmloutput(tabfile)
+            os.rename(tabfile, 'completed/'+tabfile)
